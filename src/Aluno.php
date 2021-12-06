@@ -42,6 +42,36 @@ class Aluno {
         return $resultado;
     }
 
+    public function lerUmAluno(){
+        $sql = "SELECT * FROM aluno WHERE id = :id";
+        try {
+          $consulta = $this->conexao->prepare($sql);
+          $consulta->bindParam(':id', $this->id, PDO::PARAM_INT);
+          $consulta->execute();
+          $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+        } catch (Exception $erro) {
+            die( "Erro: " .$erro->getMessage());
+        }
+        return $resultado;
+    }
+
+    public function atualizarAluno(){
+        $sql = "UPDATE aluno SET nome = :nome, primeira = :primeira, segunda = :segunda, media = :media, situacao = :situacao WHERE id = :id";
+  
+        try {
+          $consulta = $this->conexao->prepare($sql);
+          $consulta->bindParam(":id", $this->id, PDO::PARAM_INT);
+          $consulta->bindParam(":nome", $this->nome, PDO::PARAM_STR);
+          $consulta->bindParam(":primeira", $this->primeira, PDO::PARAM_STR);
+          $consulta->bindParam(":segunda", $this->segunda, PDO::PARAM_STR);
+          $consulta->bindParam(":media", $this->media, PDO::PARAM_STR);
+          $consulta->bindParam(":situacao", $this->situacao, PDO::PARAM_STR);
+          $consulta->execute();
+        } catch (Exception $erro){
+          die( "Erro: " .$erro->getMessage());
+        }
+    }
+
 
     
     // Getters
@@ -65,6 +95,9 @@ class Aluno {
     }
 
     // Setters
+    public function setId(int $id) {
+        $this->id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+    }
     public function setNome(string $nome) {
         $this->nome = filter_var($nome, FILTER_SANITIZE_STRING);
     }

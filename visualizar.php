@@ -24,6 +24,8 @@ $listaAlunos = $aluno->lerAlunos();
             <li>Segunda nota: <?=$arrAluno['segunda']?></li>
             <li>Nota media: <?=$arrAluno['media']?></li>
             <li>Situação: <?=$arrAluno['situacao']?></li>
+            <a href="atualizar.php?id=<?=$arrAluno['id']?>">Atualizar</a>
+            <a href="excluir.php?id=<?=$arrAluno['id']?>">Excluir</a>
         </ul>
     <?php } ?>
 
