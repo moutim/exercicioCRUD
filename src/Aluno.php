@@ -30,6 +30,18 @@ class Aluno {
         }
     }
 
+    public function lerAlunos () {
+        $sql = "SELECT * FROM aluno";
+        try {
+            $consulta = $this->conexao->prepare($sql); 
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $erro) {
+            die( "Erro: " .$erro->getMessage());
+        }
+        return $resultado;
+    }
+
 
     
     // Getters
