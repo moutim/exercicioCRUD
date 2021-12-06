@@ -14,6 +14,23 @@ class Aluno {
         $this->conexao = Banco::conecta();
     }
 
+    public function inserirAluno () {
+        $sql = "INSERT INTO aluno(nome, primeira, segunda, media, situacao) VALUE (:nome, :primeira, :segunda, :media, :situacao)";
+
+        try {
+            $consulta = $this->conexao->prepare($sql);
+            $consulta->bindParam(":nome", $this->nome, PDO::PARAM_STR);
+            $consulta->bindParam(":primeira", $this->primeira, PDO::PARAM_STR);
+            $consulta->bindParam(":segunda", $this->segunda, PDO::PARAM_STR);
+            $consulta->bindParam(":media", $this->media, PDO::PARAM_STR);
+            $consulta->bindParam(":situacao", $this->situacao, PDO::PARAM_STR);
+            $consulta->execute();
+        } catch (Exception $erro) {
+            die( "Erro: " .$erro->getMessage());
+        }
+    }
+
+
     
     // Getters
     public function getId():int {

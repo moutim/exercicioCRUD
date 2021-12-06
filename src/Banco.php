@@ -3,10 +3,10 @@ abstract class Banco {
     private static PDO $conexao;
 
     public static function conecta () {
-        $servidor = 'localhost';
-        $usuario = 'root';
-        $senha = '';
-        $banco = 'exercicio_crud';
+        $servidor = "localhost";
+        $usuario = "root";
+        $senha = "";
+        $banco = "exercicio_crud";
 
         try {
             self::$conexao = new PDO ("mysql:host=$servidor; dbname=$banco; charset=utf8", $usuario, $senha);

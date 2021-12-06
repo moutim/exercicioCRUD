@@ -1,3 +1,25 @@
+<?php
+	require "src/Aluno.php";
+	$aluno = new Aluno;
+
+	if (isset($_POST['cadastrar-aluno'])) {
+		$notaMedia = ($_POST['primeira'] + $_POST['segunda']) / 2;
+		if ($notaMedia >= 7) {
+			$situacao = 'Aprovado';
+		} else {
+			$situacao = 'Reprovado';
+		}
+
+		$aluno->setNome($_POST['nome']);
+		$aluno->setPrimeira($_POST['primeira']);
+		$aluno->setSegunda($_POST['primeira']);
+		$aluno->setMedia($notaMedia);
+		$aluno->setSituacao($situacao);
+		$aluno->inserirAluno();
+		header('location:visualizar.php');
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,6 +27,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cadastrar um novo aluno - Exercício CRUD com PHP e MySQL</title>
 <link href="css/style.css" rel="stylesheet">
+<script src="js/script.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -17,12 +40,12 @@
 	    <p><label for="nome">Nome:</label>
 	    <input type="text" name="nome" id="nome" required></p>
         
-      <p><label for="primeira">Primeira nota:</label>
+      	<p><label for="primeira">Primeira nota:</label>
 	    <input type="number" name="primeira" id="primeira" step="0.1" min="0.0" max="10" required></p>
 	    
 	    <p><label for="segunda">Segunda nota:</label>
 	    <input type="number" name="segunda" id="segunda" step="0.1" min="0.0" max="10" required></p>
-	    
+
       <button name="cadastrar-aluno">Cadastrar aluno</button>
 	</form>
 
