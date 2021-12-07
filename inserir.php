@@ -51,7 +51,7 @@
 	</form>
 
     <hr>
-    <p><a href="index.php">Voltar ao início</a></p>
+    <p><a href="index.php" class="btn btn-primary">Voltar ao início</a></p>
 </div>
 
 </body>
