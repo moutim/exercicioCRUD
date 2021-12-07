@@ -93,16 +93,16 @@ class Aluno {
     public function getNome():int {
         return $this->nome;
     }
-    public function getPrimeira():int {
+    public function getPrimeira():float {
         return $this->primeira;
     }
-    public function getSegunda():int {
+    public function getSegunda():float {
         return $this->segunda;
     }
-    public function getMedia():int {
+    public function getMedia():float {
         return $this->media;
     }
-    public function getSituacao():int {
+    public function getSituacao():string {
         return $this->situacao;
     }
 
@@ -114,13 +114,13 @@ class Aluno {
         $this->nome = filter_var($nome, FILTER_SANITIZE_STRING);
     }
     public function setPrimeira(float $primeira) {
-        $this->primeira = filter_var($primeira, FILTER_SANITIZE_NUMBER_FLOAT);
+        $this->primeira = filter_var($primeira, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     }
-    public function setSegunda(string $segunda) {
-        $this->segunda = filter_var($segunda, FILTER_SANITIZE_NUMBER_FLOAT);
+    public function setSegunda(float $segunda) {
+        $this->segunda = filter_var($segunda, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     }
-    public function setMedia(string $media) {
-        $this->media = filter_var($media, FILTER_SANITIZE_NUMBER_FLOAT);
+    public function setMedia(float $media) {
+        $this->media = filter_var($media, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     }
     public function setSituacao(string $situacao) {
         $this->situacao = filter_var($situacao, FILTER_SANITIZE_STRING);

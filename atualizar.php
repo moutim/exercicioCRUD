@@ -5,18 +5,17 @@
     $lerAluno = $aluno->lerUmAluno();
 
     if (isset($_POST['atualizar-dados'])) {
-        $notaMedia = ($_POST['primeira'] + $_POST['segunda']) / 2;
+        $aluno->setPrimeira($_POST['primeira']);
+		$aluno->setSegunda($_POST['segunda']);
+		$aluno->setNome($_POST['nome']);
+		$notaMedia = ($aluno->getPrimeira() + $aluno->getSegunda()) / 2;
 		if ($notaMedia >= 7) {
 			$situacao = 'Aprovado';
 		} else {
 			$situacao = 'Reprovado';
 		}
-
-		$aluno->setNome($_POST['nome']);
-		$aluno->setPrimeira($_POST['primeira']);
-		$aluno->setSegunda($_POST['segunda']);
-		$aluno->setMedia($notaMedia);
 		$aluno->setSituacao($situacao);
+		$aluno->setMedia($notaMedia);
 		$aluno->atualizarAluno();
 		header('location:visualizar.php');
     }
