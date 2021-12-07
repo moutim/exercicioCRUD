@@ -1,10 +1,10 @@
 html { font-size: 16px;}
 body { 
-    font-family: "Segoe UI", Arial, sans-serif;
+    /* font-family: "Segoe UI", Arial, sans-serif;
     background: rgb(20,20,20);
-    background: radial-gradient(circle, rgba(20,20,20,1) 0%, rgba(46,46,46,1) 67%);
+    background: radial-gradient(circle, rgba(20,20,20,1) 0%, rgba(46,46,46,1) 67%); */
 }
-
+/* 
 .container {
     max-width: 1200px;
     width: 100%;
@@ -23,4 +23,4 @@ a:hover, a:focus { text-decoration: underline;}
 
 article {
     display: flex;
-}
+} */

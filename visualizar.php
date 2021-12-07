@@ -10,7 +10,6 @@ $listaAlunos = $aluno->lerAlunos();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lista de alunos - Exercício CRUD com PHP e MySQL</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -34,12 +33,14 @@ $listaAlunos = $aluno->lerAlunos();
                     <li class="list-group-item list-group-item-danger"><strong>Situação: </strong><?=$arrAluno['situacao']?></li>
                 <?php } ?>
                 <a class="btn btn-warning mt-2" href="atualizar.php?id=<?=$arrAluno['id']?>">Atualizar</a>
-                <a class="btn btn-danger" href="excluir.php?id=<?=$arrAluno['id']?>">Excluir</a>
+                <a class="btn btn-danger" href="excluir.php?id=<?=$arrAluno['id']?>" onclick="return confirm('Esta ação irá apagar esse aluno, deseja continuar?')" >Excluir</a>
             </ul>
         <?php } ?>
     </div>
     </article>
 </div>
 
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
